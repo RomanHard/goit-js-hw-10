@@ -25,23 +25,28 @@ function onInput(e) {
     console.log(res);
     const resLength = res.length;
     if (resLength === 1) {
-        const murkup = createOneMarup(res);
+        const markup = createOneMarkup(res);
         refs.countryInfoRef.insertAdjacentHTML('beforeend', markup);
         return;
-    }
-    if (resLength > 10) {
+      }
+      if (resLength > 2 && resLength <= 10) {
+        const markup = createCountriesList(res);
+        refs.listRef.insertAdjacentHTML('beforeend', markup);
+        return;
+      }
+      if (resLength > 10) {
         Notify.info(
-            'Too many matches found. Please enter a more specific name.'
+          'Too many matches found. Please enter a more specific name.'
         );
         return;
-    }
+      }
   }).catch(error => {
     clearInput();
     console.log(error);
     Notify.failure('Oops, there is no country with that name')
   });
 
-  function createOneCountryMarkup(countries = []) {
+  function createOneMarkup(countries = []) {
     return countries
       .map(
         country =>
