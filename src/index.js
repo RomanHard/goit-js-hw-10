@@ -24,4 +24,13 @@ function onInput(e) {
   .then(res => {
     console.log(res);
     const resLength = res.length;
+    if (resLength === 1) {
+        const murkup = createOneMarup(res);
+        refs.countryInfoRef.insertAdjacentHTML('beforeend', markup);
+    }
   })
+
+  function createOneMarup(countries =[]) {
+    return countries
+    .map()
+  }
