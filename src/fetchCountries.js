@@ -4,7 +4,6 @@ export function fetchCountries(name) {
   return fetch(
     `${COUNTRY_URL}${name}?fields=name,capital,popular,flags,languages`
   ).then(response => {
-    console.log(response);
     if (response.ok) {
       return response.json();
     }
