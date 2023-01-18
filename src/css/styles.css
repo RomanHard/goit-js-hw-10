@@ -41,11 +41,3 @@ body {
   display: inline;
   font-weight: bold;
 }
-
-.country-info-wrapper {
-  display: flex;
-}
-
-.country-info-name {
-  padding-left: 10px;
-}
